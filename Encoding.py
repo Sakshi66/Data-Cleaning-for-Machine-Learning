@@ -6,16 +6,12 @@ class Encoding:
 	df = None
 	df_cat = None
 	def __init__(self, df):
-	    #self.data = []
 	    self.df = df
 	    self.df_cat = df.select_dtypes(include =['object'])
 
-	    # getOptions()
-
-	def getOptions(self,):
-		x = 1
-		while(x):
-			print("\n\n Tasks \n")
+	def getOptions(self):
+		while(True):
+			print("\n\n Encoding Options \n")
 			print("1. Show Categorical Columns")
 			print("2. Perform Ordinal Encoding")
 			print("3. Perform One Hot Encoding")
@@ -41,26 +37,22 @@ class Encoding:
 				self.showDataset()
 			else:
 				print(f"{opt} is not a valid option!")
+				
 		return self.df
 
-	def showCatCols(self,):
+	def showCatCols(self):
 		df_cat_unique = self.df_cat.nunique().to_frame().reset_index()
 		df_cat_unique.columns = ['Variable','DistinctCount']
 		print(df_cat_unique)
-
-		# self.getOptions()
 
 	def ordinalEncoding(self):
 		pass
 
 	def oneHotEncoding(self):
-		x = 1
-		while(x):
+		while(True):
 			colName = input("Which column to performe Ordinal Encoding on: ")
 			if colName in self.df:
-				x = 0
 
-				# encoded_df = pd.get_dummies(self.df.colName)
 				encoded_df = pd.get_dummies(self.df[[colName]])
 				# This returns a new dataframe with a column for every unique value that exists,
 				# along with either a 1 or 0 specifying the presence of that rating for a
@@ -73,13 +65,14 @@ class Encoding:
 
 				# Dropping the original column
 				self.df = self.df.drop([colName], axis=1)
+				break;
 
 			else:
 				print("The column name is invalid!")
 
 	def showDataset(self):
 		n = 1
-		while(1):
+		while(True):
 			try:
 				val = input("How many rows to print(>0): ")
 				n = int(val)

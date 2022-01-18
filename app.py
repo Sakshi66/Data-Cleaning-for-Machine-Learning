@@ -16,8 +16,7 @@ def getTargetVariable():
     #print(*cols)            # *cols to just print names without "," and "[]"
     print('   '.join(cols))
 
-    x = 1
-    while(x):
+    while(True):
         var = str(input("\n What is the target variable? (-1 to exit): "))
         if var == "-1":
             sys.exit("BYE!")
@@ -37,8 +36,7 @@ def getTask():
     print("5. Download the Modified Dataset")
 
     opt = 0
-    x = 1
-    while(x):
+    while(True):
         try:
             val = input("\nWhat would you like to do? (Enter -1 to exit): ")
             opt = int(val)
@@ -49,7 +47,6 @@ def getTask():
         if opt == -1:
             return opt 
         if (opt >= 1) and (opt <=5):
-            x = 0
             return opt
         else:
             print(f"{opt} is not a valid option!")
@@ -84,7 +81,7 @@ def main():
     # the data frame is stored in df variable
     # Encountered a unicode error so changed encoding from unicode(default) to unicode_escape
     global df
-    df = pd.read_csv('sample1.csv', sep='\t+', engine='python', encoding = 'unicode_escape')
+    df = pd.read_csv(file, sep='\t+', engine='python', encoding = 'unicode_escape')
     
     DescObj = dd.DataDescription()  # Data Description Object
     NullObj = nv.NullValues()   # NULL Values Handling Object
@@ -95,8 +92,7 @@ def main():
     targetVar = getTargetVariable()
     
 
-    x = 1
-    while(x):
+    while(True):
         task = getTask()
         if task == -1:
             break
