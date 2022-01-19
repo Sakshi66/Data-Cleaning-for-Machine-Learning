@@ -1,9 +1,13 @@
 
 class FeatureScaling:
-	def __init__(self, df):
+	df = None
+
+	def __init__(self):
+		pass
+
+	def getOptions(self,df):
 		self.df = df
 
-	def getOptions(self):
 		while(True):
 			print("\n\n Feature Scaling Options \n")
 			print("1. Perform Normalization(MinMax Scaler)")
@@ -28,8 +32,14 @@ class FeatureScaling:
 				self.showDataset()
 			else:
 				print(f"{opt} is not a valid option!")
-				
+
 		return self.df
+
+	def getNorOptions(self):
+		pass
+
+	def getStdOptions(self):
+		pass
 
 	def standardization(self):
 		pass

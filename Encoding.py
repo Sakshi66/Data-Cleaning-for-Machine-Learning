@@ -5,11 +5,13 @@ import pandas as pd
 class Encoding:
 	df = None
 	df_cat = None
-	def __init__(self, df):
-	    self.df = df
-	    self.df_cat = df.select_dtypes(include =['object'])
+	def __init__(self):
+	    pass
 
-	def getOptions(self):
+	def getOptions(self,df):
+		self.df = df
+		self.df_cat = df.select_dtypes(include =['object'])
+
 		while(True):
 			print("\n\n Encoding Options \n")
 			print("1. Show Categorical Columns")
@@ -37,7 +39,7 @@ class Encoding:
 				self.showDataset()
 			else:
 				print(f"{opt} is not a valid option!")
-				
+
 		return self.df
 
 	def showCatCols(self):

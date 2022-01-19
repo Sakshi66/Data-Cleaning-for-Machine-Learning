@@ -54,7 +54,7 @@ def getTask():
 
 
 def main():
-    print("WELCOME TO MACHINE LEARNING PREPROCESSING CLI")
+    print("WELCOME TO MACHINE LEARNING PREPROCESSING CLI \n")
 
     # Getting the data file and checking if it is the right format.
     # only .csv extension files are allowed.
@@ -85,7 +85,7 @@ def main():
     
     DescObj = dd.DataDescription()  # Data Description Object
     NullObj = nv.NullValues()   # NULL Values Handling Object
-    EncObj = en.Encoding(df)    # Data Encoding Object
+    EncObj = en.Encoding()    # Data Encoding Object
     ScObj = fs.FeatureScaling()      # Feature Scaling Object
     DwObj = dw.Downloading()     # Downloading Object
 
@@ -97,13 +97,13 @@ def main():
         if task == -1:
             break
         elif task == 1:
-            pass
+            df = DescObj.getOptions(df)
         elif task == 2:
             pass
         elif task == 3:
-            df = EncObj.getOptions()
+            df = EncObj.getOptions(df)
         elif task == 4:
-            pass
+            df = ScObj.getOptions(df)
         elif task == 5:
             pass
         else:
