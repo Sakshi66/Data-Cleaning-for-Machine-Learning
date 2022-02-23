@@ -1,6 +1,8 @@
 import sys
 import os
 import pandas as pd
+import numpy as nu
+import seaborn as sns
 
 # importing project modules
 import DataDescription as dd
@@ -89,7 +91,7 @@ def main():
     ScObj = fs.FeatureScaling()      # Feature Scaling Object
     DwObj = dw.Downloading()     # Downloading Object
 
-    targetVar = getTargetVariable()
+    # targetVar = getTargetVariable()
     
 
     while(True):
@@ -99,7 +101,7 @@ def main():
         elif task == 1:
             df = DescObj.getOptions(df)
         elif task == 2:
-            pass
+            df = NullObj.getOptions(df)
         elif task == 3:
             df = EncObj.getOptions(df)
         elif task == 4:
